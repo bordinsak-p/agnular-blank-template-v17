@@ -1,0 +1,42 @@
+<div class="card">
+  <p-table
+    #dt
+    [value]="products"
+    [(selection)]="selectedProducts"
+    [scrollable]="true"
+    [rowHover]="true"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [rows]="10"
+    [loading]="loading"
+    [paginator]="true"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    sortMode="multiple"
+    dataKey="name"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 1%"><p-tableHeaderCheckbox /></th>
+        <th pSortableColumn="name" style="width: 10%">
+          Name <p-sortIcon field="name" />
+        </th>
+        <th pSortableColumn="price" style="width: 10%">
+          Price <p-sortIcon field="price" />
+        </th>
+        <th pSortableColumn="quantity" style="width: 10%">
+          Quantity <p-sortIcon field="quantity" />
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td style="width: 1%">
+          <p-tableCheckbox [value]="product" />
+        </td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.quantity }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

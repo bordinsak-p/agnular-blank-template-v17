@@ -1,0 +1,28 @@
+<p-toast />
+<form [formGroup]="form">
+  <div class="grid">
+    <div class="col-12 md:col-3">
+      <p>Normal Input Text</p>
+      <input type="text" pInputText formControlName="normal" />
+      <p-button class="btn-copied" (onClick)="copyText('Normal')"
+        ><i class="pi pi-copy"></i
+      ></p-button>
+    </div>
+
+    <div class="col-12 md:col-3">
+      <p>Validate Input Text</p>
+      <input type="text" pInputText formControlName="validate" />
+      <p-button class="btn-copied" (onClick)="copyText('Normal')"
+        ><i class="pi pi-copy"></i
+      ></p-button>
+    </div>
+    <div class="col-12 md:col-3">
+      <p>Form invalid, touch</p>
+      <p-button (onClick)="onTouch()" class="mr-2">Validate</p-button>
+      <p-button (onClick)="onClear()">Clear</p-button>
+    </div>
+  </div>
+  <div class="grid"></div>
+  <div class="grid"></div>
+</form>
+
