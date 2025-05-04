@@ -1,5 +1,9 @@
 @import "../../assets/styles/colors.scss";
 
+$font-color: #141414;
+$breadcrumb-color: #eeeeee;
+$sidebar-color: #fafcff;
+
 .nav-bar {
   display: flex;
   justify-content: space-between;
@@ -16,37 +20,76 @@
     font-size: 24px;
   }
 
-  .right-content {
+  .left-content {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     align-items: center;
+
+    .icon {
+      color: $font-color;
+    }
 
     .title .main {
       font-size: 24px;
       font-weight: 500;
+      color: $font-color;
     }
 
     .title .sub {
       font-size: 16px;
-      color: #707070;
+      color: $pink-3;
     }
   }
 
-  .left-content .icon {
+  .right-content .icon {
     display: flex;
+    align-items: center;
     gap: 20px;
     font-size: 24px;
     color: $pink-1;
+
+    .avatar {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      gap: 10px;
+    }
+
+    .profile {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid $font-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: $font-color;
+    }
+
+    .detail {
+      color: $font-color;
+    }
   }
 }
 
 .container {
   display: flex;
-  height: calc(100vh - 80px); /* ความสูงตามต้องการ */
+  min-height: calc(100vh - 80px); // ให้มีความสูงขั้นต่ำพอเท่าจอ
+  align-items: stretch; // ให้ลูกๆยืดความสูงตามกัน
 
   .sidebar {
     width: 312px;
-    background-color: #fafcff;
+    background-color: $sidebar-color;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: 0.5s ease-in-out;
+    overflow: hidden;
+
+    &.collapsed {
+      width: 0;
+      padding: 0;
+      opacity: 0;
+    }
   }
 
   .breadcrumb {
@@ -57,8 +100,12 @@
   .content-wapper {
     flex: 1; /* กินพื้นที่ที่เหลือของ .container */
     padding: 10px 40px;
-    background-image: url("../../assets/icons/top-bg.svg"), url("../../assets/icons/bottom-bg.svg");
+    background-image: url("../../assets/icons/top-bg.svg"),
+      url("../../assets/icons/bottom-bg.svg");
     background-position: top, bottom;
+    background-color: white;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100%, 100%;
 
     ::ng-deep .p-breadcrumb {
       background-color: transparent;
@@ -67,15 +114,15 @@
       font-size: 18px;
 
       .p-breadcrumb-list .p-menuitem-text {
-        color: #ffff;
+        color: $breadcrumb-color;
       }
 
       .p-breadcrumb-list li.p-menuitem-separator {
-        color: #ffff;
+        color: $breadcrumb-color;
       }
 
       .p-breadcrumb-list li .p-menuitem-link .p-menuitem-icon {
-        color: #ffff;
+        color: $breadcrumb-color;
       }
     }
   }
@@ -84,8 +131,43 @@
     background-color: white;
     border-radius: 24px;
     min-height: 760px;
-    max-height: calc(100vh - 148px);
     padding: 20px;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  }
+
+  .sidebar-title {
+    color: gray;
+    margin-inline: 20px;
+    padding-top: 10px;
+    font-size: 14 px;
+  }
+
+  .sidebar-content {
+    margin-top: 20px;
+  }
+
+  .sidebar-content .btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-inline: 20px;
+  }
+
+  .menu-list {
+    cursor: pointer;
+    list-style-type: none;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      font-size: 16px;
+    }
+
+    a {
+      text-decoration: none;
+      color: $font-color;
+    }
   }
 }

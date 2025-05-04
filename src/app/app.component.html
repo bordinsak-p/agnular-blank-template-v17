@@ -1,7 +1,7 @@
 <div class="nav-bar">
-  <div class="right-content">
-    <div class="icon">
-      <i class="pi pi-bars" id="bars`"></i>
+  <div class="left-content">
+    <div class="icon cursor-pointer" (click)="toggleSidebar()">
+      <i class="pi pi-bars" id="bars"></i>
     </div>
     <div class="title">
       <span class="main">ระบบจัดการข้อมูลพนักงาน</span>
@@ -9,8 +9,27 @@
       <span class="sub">ระบบจัดการข้อมูลพนักงาน</span>
     </div>
   </div>
-  <div class="left-content">
+  <div class="right-content">
     <div class="icon">
+      <div class="avatar">
+        <div class="profile">บป</div>
+        <div class="detail">
+          <ng-container *ngIf="firstname && lastname; else unknownName">
+            <span>{{ firstname }} {{ lastname }}</span>
+          </ng-container>
+          <ng-template #unknownName>
+            <span>unknown</span>
+          </ng-template>
+          <br />
+          <ng-container *ngIf="position; else unknownPosition">
+            <span>{{ position }}</span>
+          </ng-container>
+          <ng-template #unknownPosition>
+            <span>unknown</span>
+          </ng-template>
+        </div>
+      </div>
+
       <i class="pi pi-bell" id="noti"></i>
       <i class="pi pi-cog" id="setting"></i>
       <i class="pi pi-sign-out" id="sign-out"></i>
@@ -19,24 +38,36 @@
 </div>
 
 <div class="container">
-  <div class="sidebar" id="sidebar">
+  <div class="sidebar" id="sidebar" [class.collapsed]="!isSidebarVisible">
     <div class="sidebar-content">
-      <div class="sidebar-title">เมนูหลัก</div>
+      <div class="btn-container">
+        <p-button
+          class="btn-search-outline"
+          label="ค้นหาพนักงาน"
+          [style]="{ width: '100%' }"
+        ></p-button>
+        <p-button
+          class="btn-search"
+          label="เพิ่มพนักงาน"
+          [style]="{ width: '100%' }"
+        ></p-button>
+      </div>
+      <div class="sidebar-title mt-3">เมนูหลัก</div>
       <ul class="menu-list">
         <li>
-          <a href="#"><i class="pi pi-home"></i> หน้าแรก</a>
+          <a routerLink="/"><i class="pi pi-home"></i> หน้าแรก</a>
         </li>
         <li>
-          <a href="#"><i class="pi pi-users"></i> ข้อมูลพนักงาน</a>
+          <a routerLink="/"><i class="pi pi-users"></i> ข้อมูลพนักงาน</a>
         </li>
         <li>
-          <a href="#"><i class="pi pi-briefcase"></i> ข้อมูลตำแหน่งงาน</a>
+          <a routerLink="/"><i class="pi pi-briefcase"></i> ข้อมูลตำแหน่งงาน</a>
         </li>
         <li>
-          <a href="#"><i class="pi pi-calendar"></i> ข้อมูลการลา</a>
+          <a routerLink="/"><i class="pi pi-calendar"></i> ข้อมูลการลา</a>
         </li>
         <li>
-          <a href="#"><i class="pi pi-chart-line"></i> รายงาน</a>
+          <a routerLink="/"><i class="pi pi-chart-line"></i> รายงาน</a>
         </li>
       </ul>
     </div>

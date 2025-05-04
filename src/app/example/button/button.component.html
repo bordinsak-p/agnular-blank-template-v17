@@ -1,4 +1,4 @@
-<p class="mt-5 font-bold">Normal</p>
+<p class="mt-5 font-bold">Normal / Outline</p>
 <div class="flex flex-wrap gap-3">
   <p-button label="Primary" />
   <p-button label="Secondary" severity="secondary" />
@@ -8,28 +8,33 @@
   <p-button label="Help" severity="help" />
   <p-button label="Danger" severity="danger" />
   <p-button label="Contrast" severity="contrast" />
+
+  <p-button label="Primary" [outlined]="true" />
+  <p-button label="Secondary" [outlined]="true" severity="secondary" />
+  <p-button label="Success" [outlined]="true" severity="success" />
+  <p-button label="Info" [outlined]="true" severity="info" />
+  <p-button label="Warning" [outlined]="true" severity="warning" />
+  <p-button label="Help" [outlined]="true" severity="help" />
+  <p-button label="Danger" [outlined]="true" severity="danger" />
+  <p-button label="Contrast" [outlined]="true" severity="contrast" />
 </div>
 
-<p class="mt-5 font-bold">Raised</p>
-<div class="flex flex-warp gap-3">
-  <p-button label="Primary" [raised]="true" />
-  <p-button label="Secondary" [raised]="true" severity="secondary" />
-  <p-button label="Success" [raised]="true" severity="success" />
-  <p-button label="Info" [raised]="true" severity="info" />
-  <p-button label="Warning" [raised]="true" severity="warning" />
-  <p-button label="Help" [raised]="true" severity="help" />
-  <p-button label="Danger" [raised]="true" severity="danger" />
-  <p-button label="Contrast" [raised]="true" severity="contrast" />
+<p class="mt-5 font-bold">Custom</p>
+<div class="flex flex-wrap gap-3">
+  <p-button label="ค้นหา" class="btn-search"/>
+  <p-button label="ลบ" class="btn-delete"/>
+  <p-button label="เพิ่ม" class="btn-add"/>
+  <p-button label="ค้นหา" class="btn-search-outline" [outlined]="true" />
+  <p-button label="ลบ" class="btn-delete-outline" [outlined]="true" />
+  <p-button label="เพิ่ม" class="btn-add-outline" [outlined]="true" />
 </div>
-
-<p class="mt-5 font-bold">Rounded</p>
-<div class="flex flex-warp gap-3">
-  <p-button label="Primary" [rounded]="true" />
-  <p-button label="Secondary" [rounded]="true" severity="secondary" />
-  <p-button label="Success" [rounded]="true" severity="success" />
-  <p-button label="Info" [rounded]="true" severity="info" />
-  <p-button label="Warning" [rounded]="true" severity="warning" />
-  <p-button label="Help" [rounded]="true" severity="help" />
-  <p-button label="Danger" [rounded]="true" severity="danger" />
-  <p-button label="Contrast" [rounded]="true" severity="contrast" />
+<p class="mt-5 font-bold">Diabled</p>
+<div class="flex flex-wrap gap-3">
+  <p-button label="ค้นหา" class="btn-search" [disabled]="true"/>
+  <p-button label="ลบ" class="btn-delete" [disabled]="true"/>
+  <p-button label="เพิ่ม" class="btn-add" [disabled]="true"/>
+  <p-button label="ค้นหา" [outlined]="true"  [disabled]="true"/>
+  <p-button label="ลบ" [outlined]="true"  [disabled]="true"/>
+  <p-button label="เพิ่ม" [outlined]="true"  [disabled]="true"/>
+  <p-button label="Secondary" severity="secondary"  [disabled]="true"/>
 </div>

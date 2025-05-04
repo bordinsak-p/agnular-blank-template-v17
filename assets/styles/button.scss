@@ -1,3 +1,15 @@
+@import "./colors.scss";
+
+// สร้าง mixin หนึ่งครั้ง
+@mixin button-disabled {
+  &:disabled,
+  &.p-disabled {
+    background-color: $gray;
+    border-color: $gray;
+    color: #141414;
+  }
+}
+
 .btn-copied {
   margin-inline-start: 5px;
 
@@ -9,5 +21,128 @@
     &:hover {
       background-color: rgb(214, 214, 214);
     }
+  }
+}
+
+.btn-search {
+  .p-button {
+    background-color: $pink-3;
+    border-color: $pink-3;
+
+    &:hover {
+      background-color: $pink-2;
+      border-color: $pink-2;
+    }
+
+    &:active {
+      background-color: $pink-1;
+      border-color: $pink-1;
+    }
+
+    @include button-disabled;
+  }
+}
+
+.btn-delete {
+  .p-button {
+    background-color: $red-3;
+    border-color: $red-3;
+
+    &:hover {
+      background-color: $red-2;
+      border-color: $red-2;
+    }
+
+    &:active {
+      background-color: $red-1;
+      border-color: $red-1;
+    }
+
+    @include button-disabled;
+  }
+}
+
+.btn-add {
+  .p-button {
+    background-color: $green-1;
+    border-color: $green-1;
+
+    &:hover {
+      background-color: $green-2;
+      border-color: $green-2;
+    }
+
+    &:active {
+      background-color: $green-3;
+      border-color: $green-3;
+    }
+
+    @include button-disabled;
+  }
+}
+
+.btn-search-outline {
+  .p-button {
+    background-color: transparent;
+    border-color: $pink-3;
+    color: $pink-3;
+
+    &:hover {
+      background-color: $pink-2;
+      border-color: $pink-2;
+      color: white;
+    }
+
+    &:active {
+      background-color: $pink-1;
+      border-color: $pink-1;
+      color: white;
+    }
+
+    @include button-disabled;
+  }
+}
+
+.btn-add-outline {
+  .p-button {
+    background-color: transparent;
+    border-color: $green-1;
+    color: $green-1;
+
+    &:hover {
+      background-color: $green-2;
+      border-color: $green-2;
+      color: white;
+    }
+
+    &:active {
+      background-color: $green-3;
+      border-color: $green-3;
+      color: white;
+    }
+
+    @include button-disabled;
+  }
+}
+
+.btn-delete-outline {
+  .p-button {
+    background-color: transparent;
+    border-color: $red-3;
+    color: $red-3;
+
+    &:hover {
+      background-color: $red-2;
+      border-color: $red-2;
+      color: white;
+    }
+
+    &:active {
+      background-color: $red-1;
+      border-color: $red-1;
+      color: white;
+    }
+
+    @include button-disabled;
   }
 }
