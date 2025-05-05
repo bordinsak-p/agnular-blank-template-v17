@@ -1,0 +1,68 @@
+<div class="nav-bar">
+  <div class="left-content">
+    <div class="icon cursor-pointer" (click)="toggleSidebar()">
+      <i class="pi pi-bars" id="bars"></i>
+    </div>
+    <div class="title">
+      <span class="main">ระบบจัดการข้อมูลพนักงาน</span>
+      <br />
+      <span class="sub">Employee managementg systems</span>
+    </div>
+  </div>
+  <div class="right-content">
+    <div class="icon">
+      <div class="avatar">
+        <div class="profile">บป</div>
+        <div class="detail">
+          <ng-container *ngIf="firstname && lastname; else unknownName">
+            <span>{{ firstname }} {{ lastname }}</span>
+          </ng-container>
+          <ng-template #unknownName>
+            <span>unknown</span>
+          </ng-template>
+          <br />
+          <ng-container *ngIf="position; else unknownPosition">
+            <span>{{ position }}</span>
+          </ng-container>
+          <ng-template #unknownPosition>
+            <span>unknown</span>
+          </ng-template>
+        </div>
+      </div>
+
+      <i class="pi pi-bell" id="noti"></i>
+      <i class="pi pi-cog" id="setting"></i>
+      <i class="pi pi-sign-out" id="sign-out"></i>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sidebar" id="sidebar" [class.collapsed]="!isSidebarVisible">
+    <div class="sidebar-content">
+      <div class="btn-container">
+        <p-button
+          label="ค้นหาพนักงาน"
+          class="btn-wfull btn-search-outline"
+        ></p-button>
+        <p-button class="btn-wfull btn-search" label="เพิ่มพนักงาน"></p-button>
+      </div>
+      <div class="sidebar-title mt-3">เมนูหลัก</div>
+      <ul class="menu-list">
+        @for (item of menuList; track $index) {
+        <li>
+          <a routerLink="{{ baseRoute + item.routerLink }}"
+            ><i class="{{ item.icon }}"></i>{{ item.label }}</a
+          >
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+  <div class="content-wapper">
+    <p-breadcrumb class="max-w-full" [model]="items" [home]="home" />
+    <div class="program">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

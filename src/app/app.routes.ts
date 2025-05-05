@@ -1,44 +1,15 @@
 import { Routes } from '@angular/router';
+import { program } from './constants/routes';
+import { LoginComponent } from './program/login/login.component';
+import { MainContainerComponent } from './main-container/main-container.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'example', pathMatch: 'full' },
+  { path: '', redirectTo: 'program', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   {
-    path: 'example',
-    loadComponent: () =>
-      import('./example/example.component').then((m) => m.ExampleComponent),
+    path: 'program',
+    component: MainContainerComponent,
+    children: [...program],
   },
-  {
-    path: 'home',
-    loadComponent: () =>
-      import('./program/home-page/home-page.component').then(
-        (m) => m.HomePageComponent
-      ),
-  },
-  {
-    path: 'employee',
-    loadComponent: () =>
-      import('./program/employee/employee.component').then(
-        (m) => m.EmployeeComponent
-      ),
-  },
-  {
-    path: 'department',
-    loadComponent: () =>
-      import('./program/department/department.component').then(
-        (m) => m.DepartmentComponent
-      ),
-  },
-  {
-    path: 'leave',
-    loadComponent: () =>
-      import('./program/leave/leave.component').then((m) => m.LeaveComponent),
-  },
-  {
-    path: 'report',
-    loadComponent: () =>
-      import('./program/report/report.component').then(
-        (m) => m.ReportComponent
-      ),
-  },
-  { path: '**', redirectTo: 'example' },
+  { path: '**', redirectTo: 'program/home' },
 ];
