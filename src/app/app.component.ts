@@ -22,6 +22,17 @@ import { ButtonModule } from 'primeng/button';
 export class AppComponent {
   items: MenuItem[] | undefined;
   home: MenuItem | undefined;
+  menuList: MenuItem[] = [
+    { label: 'หน้าแรก', icon: 'pi pi-home', routerLink: '/home' },
+    { label: 'ข้อมูลพนักงาน', icon: 'pi pi-users', routerLink: '/employee' },
+    { label: 'ข้อมูลแผนก', icon: 'pi pi-briefcase', routerLink: '/department' },
+    { label: 'ข้อมูลการลา', icon: 'pi pi-calendar', routerLink: '/leave' },
+    {
+      label: 'รายงานข้อมูลการลา',
+      icon: 'pi pi-chart-line',
+      routerLink: '/report',
+    },
+  ];
 
   firstname = 'บดินทร์ศักดิ์';
   lastname = 'ประสพบุญ';
@@ -30,19 +41,19 @@ export class AppComponent {
 
   ngOnInit() {
     this.items = [
-      { label: 'Electronics' },
-      { label: 'Computer' },
-      { label: 'Accessories' },
-      { label: 'Keyboard' },
-      { label: 'Wireless' },
+      { label: 'หน้าแรก', routerLink: '/home' },
+      { label: 'ข้อมูลพนักงาน', routerLink: '/employee' },
+      { label: 'ข้อมูลแผนก', routerLink: '/department' },
+      { label: 'ข้อมูลการลา', routerLink: '/leave' },
+      { label: 'รายงานข้อมูลการลา', routerLink: '/report' },
     ];
 
-    this.home = { icon: 'pi pi-home', routerLink: '/' };
+    this.home = { icon: 'pi pi-home', routerLink: '/home' };
   }
 
   toggleSidebar() {
     console.log('Toggle sidebar clicked', this.isSidebarVisible);
-    
+
     this.isSidebarVisible = !this.isSidebarVisible;
   }
 }

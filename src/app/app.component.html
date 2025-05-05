@@ -54,21 +54,13 @@
       </div>
       <div class="sidebar-title mt-3">เมนูหลัก</div>
       <ul class="menu-list">
+        @for (item of menuList; track $index) {
         <li>
-          <a routerLink="/"><i class="pi pi-home"></i> หน้าแรก</a>
+          <a routerLink="{{ item.routerLink }}"
+            ><i class="{{ item.icon }}"></i>{{ item.label }}</a
+          >
         </li>
-        <li>
-          <a routerLink="/"><i class="pi pi-users"></i> ข้อมูลพนักงาน</a>
-        </li>
-        <li>
-          <a routerLink="/"><i class="pi pi-briefcase"></i> ข้อมูลตำแหน่งงาน</a>
-        </li>
-        <li>
-          <a routerLink="/"><i class="pi pi-calendar"></i> ข้อมูลการลา</a>
-        </li>
-        <li>
-          <a routerLink="/"><i class="pi pi-chart-line"></i> รายงาน</a>
-        </li>
+        }
       </ul>
     </div>
   </div>

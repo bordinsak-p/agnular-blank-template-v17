@@ -1,7 +1,6 @@
 @import "../../assets/styles/colors.scss";
 
 $font-color: #141414;
-$breadcrumb-color: #eeeeee;
 $sidebar-color: #fafcff;
 
 .nav-bar {
@@ -82,7 +81,7 @@ $sidebar-color: #fafcff;
     width: 312px;
     background-color: $sidebar-color;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease-in-out;
     overflow: hidden;
 
     &.collapsed {
@@ -106,25 +105,6 @@ $sidebar-color: #fafcff;
     background-color: white;
     background-repeat: no-repeat, no-repeat;
     background-size: 100%, 100%;
-
-    ::ng-deep .p-breadcrumb {
-      background-color: transparent;
-      border: none;
-      box-shadow: none;
-      font-size: 18px;
-
-      .p-breadcrumb-list .p-menuitem-text {
-        color: $breadcrumb-color;
-      }
-
-      .p-breadcrumb-list li.p-menuitem-separator {
-        color: $breadcrumb-color;
-      }
-
-      .p-breadcrumb-list li .p-menuitem-link .p-menuitem-icon {
-        color: $breadcrumb-color;
-      }
-    }
   }
 
   .program {
@@ -150,7 +130,7 @@ $sidebar-color: #fafcff;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-inline: 20px;
+    padding-inline: 30px;
   }
 
   .menu-list {
@@ -160,12 +140,13 @@ $sidebar-color: #fafcff;
     li {
       display: flex;
       align-items: center;
-      gap: 10px;
       padding: 10px 0;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     a {
+      display: flex;
+      gap: 15px;
       text-decoration: none;
       color: $font-color;
     }

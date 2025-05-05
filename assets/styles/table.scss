@@ -1,0 +1,39 @@
+@import "./colors.scss";
+
+.p-datatable {
+  .p-checkbox .p-checkbox-box {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+  }
+
+  .p-checkbox .p-checkbox-box.p-highlight {
+    background-color: $pink-4;
+    border: 1px solid $pink-4;
+  }
+
+  .p-datatable-thead > tr > th {
+    background-color: $pink-8;
+    color: $pink-1;
+
+    &:hover {
+      background-color: $pink-6;
+    }
+  }
+
+  .p-datatable-tbody > tr > td {
+    padding: 1.3rem 1rem;
+  }
+
+  .p-sortable-column.p-highlight .p-sortable-column-icon {
+    color: $pink-1;
+  }
+
+  .p-sortable-column .p-sortable-column-icon {
+    color: $pink-1;
+  }
+
+  .p-sortable-column .p-sortable-column-badge {
+    background-color: $pink-1;
+    color: white;
+  }
+}
